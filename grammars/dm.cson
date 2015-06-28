@@ -1,0 +1,366 @@
+'scopeName': 'source.dm'
+'name': 'DM'
+'fileTypes': [
+  'dm'
+]
+'foldingStartMarker': '^\\s*#\\s*region|^\\s*/\\*|^(?![^{]*?//|[^{]*?/\\*(?!.*?\\*/.*?\\{)).*?\\{\\s*($|//|/\\*(?!.*?\\*/.*\\S))'
+'foldingStopMarker': '^\\s*#\\s*endregion|^\\s*\\*/|^\\s*\\}'
+'patterns': [
+  {
+    'captures':
+      '1':
+        'name': 'keyword.other.using.source.dm'
+    'begin': '^\\s*(using)\b\s*'
+    'end': '\\s*(?:$|(;))'
+    'name': 'meta.keyword.using.source.dm'
+  }
+  {
+    'begin': '^\\s*((namespace)\\s+([\\w.]+))'
+    'beginCaptures':
+      '1':
+        'name': 'meta.namespace.identifier.source.dm'
+      '2':
+        'name': 'keyword.other.namespace.source.dm'
+      '3':
+        'name': 'entity.name.type.namespace.source.dm'
+    'end': '}'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.section.namespace.end.source.dm'
+    'name': 'meta.namespace.source.dm'
+    'patterns': [
+      {
+        'begin': '{'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.namespace.begin.source.dm'
+        'end': '(?=})'
+        'name': 'meta.namespace.body.source.dm'
+        'patterns': [
+          {
+            'include': '#code'
+          }
+        ]
+      }
+    ]
+  }
+  {
+    'include': '#code'
+  }
+]
+'repository':
+  'block':
+    'patterns': [
+      {
+        'begin': '{'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.block.begin.source.dm'
+        'end': '}'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.block.end.source.dm'
+        'name': 'meta.block.source.dm'
+        'patterns': [
+          {
+            'include': '#code'
+          }
+        ]
+      }
+    ]
+  'builtinTypes':
+    'patterns': [
+      {
+        'match': '\\b(obj|list|atom|datum|turf|area|sound|var|mob)\\b'
+        'name': 'storage.type.source.dm'
+      }
+    ]
+  'code':
+    'patterns': [
+      {
+        'include': '#block'
+      }
+      {
+        'include': '#comments'
+      }
+      {
+        'include': '#constants'
+      }
+      {
+        'include': '#storage-modifiers'
+      }
+      {
+        'include': '#keywords'
+      }
+      {
+        'include': '#preprocessor'
+      }
+      {
+        'include': '#method-call'
+      }
+      {
+        'include': '#builtinTypes'
+      }
+      {
+        'include': '#documentation'
+      }
+    ]
+  'comments':
+    'patterns': [
+      {
+        'begin': '///'
+        'captures':
+          '0':
+            'name': 'punctuation.definition.comment.source.dm'
+        'end': '$\\n?'
+        'name': 'comment.block.documentation.source.dm'
+        'patterns': [
+          {
+            'include': 'text.xml'
+          }
+        ]
+      }
+      {
+        'begin': '/\\*'
+        'captures':
+          '0':
+            'name': 'punctuation.definition.comment.source.dm'
+        'end': '\\*/\\n?'
+        'name': 'comment.block.source.dm'
+      }
+      {
+        'begin': '//'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.comment.source.dm'
+        'end': '$\\n?'
+        'name': 'comment.line.double-slash.source.dm'
+      }
+    ]
+  'constants':
+    'patterns': [
+      {
+        'match': '\\b(true|false|null)\\b'
+        'name': 'constant.language.source.dm'
+      }
+      {
+        'match': '\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b'
+        'name': 'constant.numeric.source.dm'
+      }
+      {
+        'captures':
+          '0':
+            'name': 'punctuation.definition.string.begin.source.dm'
+        'match': '@"([^"]|"")*"'
+        'name': 'string.quoted.double.literal.source.dm'
+      }
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.source.dm'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.source.dm'
+        'name': 'string.quoted.double.source.dm'
+        'patterns': [
+          {
+            'match': '\\\\.'
+            'name': 'constant.character.escape.source.dm'
+          }
+        ]
+      }
+      {
+        'begin': '\''
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.source.dm'
+        'end': '\''
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.source.dm'
+        'name': 'string.quoted.single.source.dm'
+        'patterns': [
+          {
+            'match': '\\\\.'
+            'name': 'constant.character.escape.source.dm'
+          }
+        ]
+      }
+    ]
+  'keywords':
+    'patterns': [
+      {
+        'match': '\\b(if|else|to|in|while|for|foreach|in|do|return|continue|break|switch|spawn|sleep|del)\\b'
+        'name': 'keyword.control.source.dm'
+      }
+      {
+        'match': '\\b(src|world|client|mob|user|usr)\\b'
+        'name': 'constant.character.escape.source.dm'
+      }
+      {
+        'match': '\\b(var|event|delegate|fixed|add|remove|set|get|value)\\b'
+        'name': 'keyword.other.source.dm'
+      }
+      {
+        'match': '[@]\\b(add|remove|cut|new|if|else|while|for|in|do|return|continue|break|switch)\\b'
+        'name': 'meta.class.body.source.dm'
+      }
+    ]
+  'method':
+    'patterns': [
+      {
+        'begin': '\\['
+        'end': '\\]'
+        'name': 'meta.method.annotation.source.dm'
+        'patterns': [
+          {
+            'include': '#constants'
+          }
+          {
+            'include': '#preprocessor'
+          }
+          {
+            'include': '#builtinTypes'
+          }
+        ]
+      }
+      {
+        'begin': '(?=\\bnew\\s+)(?=[\\w<].*\\s+)(?=[^=]+\\()'
+        'end': '(?={|;)'
+        'name': 'meta.new-object.source.dm'
+        'patterns': [
+          {
+            'include': '#code'
+          }
+        ]
+      }
+      {
+        'begin': '(?!new)(?=[\\w<].*\\s+)(?=[^=]+\\()'
+        'end': '(})|(?=;)'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.section.method.end.source.dm'
+        'name': 'meta.method.source.dm'
+        'patterns': [
+          {
+            'include': '#storage-modifiers'
+          }
+          {
+            'begin': '([\\w.]+)\\s*\\('
+            'beginCaptures':
+              '1':
+                'name': 'entity.name.function.source.dm'
+            'end': '\\)'
+            'name': 'meta.method.identifier.source.dm'
+            'patterns': [
+              {
+                'include': '#parameters'
+              }
+            ]
+          }
+          {
+            'begin': '(?=\\w.*\\s+[\\w.]+\\s*\\()'
+            'end': '(?=[\\w.]+\\s*\\()'
+            'name': 'meta.method.return-type.source.dm'
+            'patterns': [
+              {
+                'include': '#builtinTypes'
+              }
+            ]
+          }
+          {
+            'begin': ':\\s*(this|base)\\s*\\('
+            'beginCaptures':
+              '1':
+                'name': 'constant.language.source.dm'
+            'end': '\\)'
+            'name': 'meta.method.base-call.source.dm'
+            'patterns': [
+              {
+                'include': '#builtinTypes'
+              }
+            ]
+          }
+          {
+            'begin': '{'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.method.begin.source.dm'
+            'end': '(?=})'
+            'name': 'meta.method.body.source.dm'
+            'patterns': [
+              {
+                'include': '#code'
+              }
+            ]
+          }
+        ]
+      }
+      {
+        'begin': '(?!new)(?=[\\w<].*\\s+)(?=[^=]+\\{)'
+        'end': '}'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.property.end.source.dm'
+        'name': 'meta.property.source.dm'
+        'patterns': [
+          {
+            'include': '#storage-modifiers'
+          }
+          {
+            'begin': '([\\w.]+)\\s*(?={)'
+            'captures':
+              '1':
+                'name': 'entity.name.function.source.dm'
+            'end': '(?={)'
+            'name': 'meta.method.identifier.source.dm'
+          }
+          {
+            'begin': '(?=\\w.*\\s+[\\w.]+\\s*\\{)'
+            'end': '(?=[\\w.]+\\s*\\{)'
+            'name': 'meta.method.return-type.source.dm'
+            'patterns': [
+              {
+                'include': '#builtinTypes'
+              }
+            ]
+          }
+          {
+            'begin': '{'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.property.begin.source.dm'
+            'end': '(?=})'
+            'name': 'meta.method.body.source.dm'
+            'patterns': [
+              {
+                'include': '#code'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  'preprocessor':
+    'patterns': [
+      {
+        'captures':
+          '2':
+            'name': 'meta.toc-list.region.source.dm'
+        'match': '^\\s*#\\s*(region)\\b\\s*([^\/]+)\\s'
+        'name': 'meta.preprocessor.source.dm'
+      }
+      {
+        'captures':
+          '2':
+            'name': 'entity.name.function.preprocessor.source.dm'
+        'match': '^\\s*#\\s*(define|undef|if|elif|ifndef)\\b\\s*(\\S*)'
+        'name': 'meta.preprocessor.source.dm'
+      }
+      {
+        'match': '^\\s*#\\s*(if|else|elif|endif|define|undef|warn|error)\\b\\s*([^\/]+)\\s'
+        'name': 'meta.preprocessor.source.dm'
+      }
+    ]
