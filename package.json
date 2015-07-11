@@ -1,0 +1,15 @@
+{
+  "name": "language-dm",
+  "version": "0.1",
+  "description": "DreamMaker language support for Atom",
+  "repository": "https://github.com/stuicey/language-dm",
+  "keywords": [
+    "dm",
+    "dreammaker",
+    "byond",
+    "ss13"
+  ],
+  "engines": {
+    "atom": ">0.50.0"
+  }
+}
