@@ -1,6 +1,6 @@
 {
   "name": "language-dm",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "DreamMaker language support for Atom",
   "repository": "https://github.com/stuicey/language-dm",
   "keywords": [
