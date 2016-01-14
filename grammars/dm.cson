@@ -181,6 +181,9 @@
             'name': 'string.quoted.double.function.source.dm'
             'patterns': [
               {
+                'include': '#constants'
+              }
+              {
                 'match': '\\?'
                 'name': 'constant.character.function.if'
               }
