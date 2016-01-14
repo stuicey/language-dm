@@ -4,190 +4,190 @@
     'body': 'break\n'
   'Else If':
     'prefix': 'elif'
-    'body': 'else if (${1:Condition}) \n\t$0'
+    'body': 'else if (${1:Condition})\n\t$0'
   'Else':
     'prefix': 'el'
-    'body': 'else \n\t$0'
+    'body': 'else\n\t$0'
   'For':
     'prefix': 'for'
-    'body': 'for (var/i=0, ${2:Condition}, ${3:Update}) \n\t$0'
+    'body': 'for (var/i=0, ${2:Condition}, ${3:Update})\n\t$0'
   'If':
     'prefix': 'if'
-    'body': 'if (${1:Condition}) \n\t$0'
+    'body': 'if (${1:Condition})\n\t$0'
   'Return':
     'prefix': 're'
-    'body': 'return '
+    'body': 'return'
   'Switch':
     'prefix': 'sw'
-    'body': 'switch (${1:Expression}) \n\t$0'
+    'body': 'switch (${1:Expression})\n\t$0'
   'Variable':
     'prefix': 'va'
     'body': 'var/${2:var}${3: = ${0:null}}'
   'While':
     'prefix': 'wh'
-    'body': 'while (${1:Condition}) \n\t$0'
+    'body': 'while (${1:Condition})\n\t$0'
   'ASSERT':
     'prefix': 'ASS'
-    'body': 'ASSERT(${1:Expression}) \n\t$0'
+    'body': 'ASSERT(${1:Expression})\n\t$0'
   'CRASH':
     'prefix': 'CRA'
-    'body': 'CRASH(${1:Expression}) \n\t$0'
+    'body': 'CRASH(${1:Expression})\n\t$0'
   'Abs':
     'prefix': 'ab'
-    'body': 'abs(${1:Expression}) \n\t$0'
+    'body': 'abs(${1:Expression})\n\t$0'
   'Addtext':
     'prefix': 'ad'
-    'body': 'addtext(${1:Arg1},${2:Arg2}) \n\t$0'
+    'body': 'addtext(${1:Arg1},${2:Arg2})\n\t$0'
   'Alert':
     'prefix': 'Al'
-    'body': 'Alert(${1:User},${2:Message},${3:Title},${4:Button1},${5:Button2}) \n\t$0'
+    'body': 'Alert(${1:User},${2:Message},${3:Title},${4:Button1},${5:Button2})\n\t$0'
   'Arccos ':
     'prefix': 'arcc'
-    'body': 'arccos(${1:Number}) \n\t$0'
+    'body': 'arccos(${1:Number})\n\t$0'
   'Cos':
     'prefix': 'cos'
-    'body': 'cos(${1:Number}) \n\t$0'
+    'body': 'cos(${1:Number})\n\t$0'
   'Arcsin':
     'prefix': 'sin'
-    'body': 'sin(${1:Number}) \n\t$0'
+    'body': 'sin(${1:Number})\n\t$0'
   'Sin':
     'prefix': 'cos'
-    'body': 'cos(${1:Number}) \n\t$0'
+    'body': 'cos(${1:Number})\n\t$0'
   'Arglist':
     'prefix': 'arg'
-    'body': 'arglist(${1:List}) \n\t$0'
+    'body': 'arglist(${1:List})\n\t$0'
   'Ascii2text':
     'prefix': 'asci'
-    'body': 'ascii2text(${1:Number}) \n\t$0'
+    'body': 'ascii2text(${1:Number})\n\t$0'
   'Block':
     'prefix': 'bl'
-    'body': 'block(${1:Start},${2:End}) \n\t$0'
+    'body': 'block(${1:Start},${2:End})\n\t$0'
   'Ckey':
     'prefix': 'ck'
-    'body': 'ckey(${1:Key}) \n\t$0'
+    'body': 'ckey(${1:Key})\n\t$0'
   'CkeyEx':
     'prefix': 'cke'
-    'body': 'ckeyEx(${1:Text}) \n\t$0'
+    'body': 'ckeyEx(${1:Text})\n\t$0'
   'Cmptext':
     'prefix': 'cmp'
-    'body': 'cmptext(${1:Text},${2:Text}) \n\t$0'
+    'body': 'cmptext(${1:Text},${2:Text})\n\t$0'
   'CmptextEx':
     'prefix': 'cmpe'
-    'body': 'cmptextEx(${1:Text},${2:Text}) \n\t$0'
+    'body': 'cmptextEx(${1:Text},${2:Text})\n\t$0'
   'Copytext':
     'prefix': 'cop'
-    'body': 'copytext(${1:Text},${2:Start},${3:End}) \n\t$0'
+    'body': 'copytext(${1:Text},${2:Start},${3:End})\n\t$0'
   'Del':
     'prefix': 'de'
-    'body': 'del(${1:Object}) \n\t$0'
+    'body': 'del(${1:Object})\n\t$0'
   'Do':
     'prefix': 'do'
-    'body': 'do\n\t(${1:Statement})\nwhile(${2:Expression}) \n\t$0'
+    'body': 'do\n\t(${1:Statement})\nwhile(${2:Expression})\n\t$0'
   'Fcopy':
     'prefix': 'fc'
-    'body': 'fcopy(${1:Source},${2:Destination}) \n\t$0'
+    'body': 'fcopy(${1:Source},${2:Destination})\n\t$0'
   'Fdel':
     'prefix': 'fd'
-    'body': 'fdel(${1:File}) \n\t$0'
+    'body': 'fdel(${1:File})\n\t$0'
   'Fexists':
     'prefix': 'fex'
-    'body': 'fexists(${1:File}) \n\t$0'
+    'body': 'fexists(${1:File})\n\t$0'
   'File':
     'prefix': 'fi'
-    'body': 'file(${1:File}) \n\t$0'
+    'body': 'file(${1:File})\n\t$0'
   'File2text':
     'prefix': 'file2'
-    'body': 'file2text(${1:File}) \n\t$0'
+    'body': 'file2text(${1:File})\n\t$0'
   'Findtext':
     'prefix': 'fin'
-    'body': 'findtext(${1:Haystack},${Needle},${Start},${End}) \n\t$0'
+    'body': 'findtext(${1:Haystack},${Needle},${Start},${End})\n\t$0'
   'FindtextEx':
     'prefix': 'findex'
-    'body': 'findtextEx(${1:Haystack},${Needle},${Start},${End}) \n\t$0'
+    'body': 'findtextEx(${1:Haystack},${Needle},${Start},${End})\n\t$0'
   'Flick':
     'prefix': 'fli'
-    'body': 'flick(${1:Icon},${2:Object}) \n\t$0'
+    'body': 'flick(${1:Icon},${2:Object})\n\t$0'
   'Get_dir':
-    'prefix': 'get'
-    'body': 'get_dir(${1:Location1},${2:Location2}) \n\t$0'
+    'prefix': 'getdr'
+    'body': 'get_dir(${1:Location1},${2:Location2})\n\t$0'
   'Get_dist':
-    'prefix': 'get'
-    'body': 'get_dist(${1:Location1},${2:Location2}) \n\t$0'
+    'prefix': 'getds'
+    'body': 'get_dist(${1:Location1},${2:Location2})\n\t$0'
   'Get_step':
-    'prefix': 'get'
-    'body': 'get_step(${1:Reference},${2:Direction}) \n\t$0'
+    'prefix': 'gets'
+    'body': 'get_step(${1:Reference},${2:Direction})\n\t$0'
   'Goto':
     'prefix': 'go'
-    'body': 'goto ${1:Node} \n\t$0'
+    'body': 'goto ${1:Node}\n\t$0'
   'Hascall':
     'prefix': 'has'
-    'body': 'hascall(${1:Object},${2:Proc_Name}) \n\t$0'
+    'body': 'hascall(${1:Object},${2:Proc_Name})\n\t$0'
   'Hearers':
     'prefix': 'hea'
-    'body': 'hearers(${1:Center}) \n\t$0'
+    'body': 'hearers(${1:Center})\n\t$0'
   'Initial':
     'prefix': 'ini'
-    'body': 'initial(${1:Variable}) \n\t$0'
+    'body': 'initial(${1:Variable})\n\t$0'
   'Length':
     'prefix': 'len'
-    'body': 'Length(${1:Object}) \n\t$0'
+    'body': 'Length(${1:Object})\n\t$0'
   'Locate':
     'prefix': 'loc'
-    'body': 'locate(${1:Cords/Reference}) \n\t$0'
+    'body': 'locate(${1:Cords/Reference})\n\t$0'
   'Lowertext':
     'prefix': 'low'
-    'body': 'lowertext(${1:Text}) \n\t$0'
+    'body': 'lowertext(${1:Text})\n\t$0'
   'Uppertext':
     'prefix': 'up'
-    'body': 'uppertext(${1:Text}) \n\t$0'
+    'body': 'uppertext(${1:Text})\n\t$0'
   'Max':
     'prefix': 'ma'
-    'body': 'max(${1:Number},${2:Number}) \n\t$0'
+    'body': 'max(${1:Number},${2:Number})\n\t$0'
   'Min':
     'prefix': 'mi'
-    'body': 'min(${1:Number},${2:Number}) \n\t$0'
+    'body': 'min(${1:Number},${2:Number})\n\t$0'
   'Ohearers':
     'prefix': 'ohe'
-    'body': 'ohearers(${1:Center}) \n\t$0'
+    'body': 'ohearers(${1:Center})\n\t$0'
   'Orange':
     'prefix': 'ora'
-    'body': 'orange(${1:Center}) \n\t$0'
+    'body': 'orange(${1:Center})\n\t$0'
   'range':
     'prefix': 'ran'
-    'body': 'range(${1:Center}) \n\t$0'
+    'body': 'range(${1:Center})\n\t$0'
   'Oview':
     'prefix': 'ovi'
-    'body': 'oview(${1:Center}) \n\t$0'
+    'body': 'oview(${1:Center})\n\t$0'
   'Pick':
     'prefix': 'pi'
-    'body': 'pick(${1:Value1},${2:Value2}) \n\t$0'
+    'body': 'pick(${1:Value1},${2:Value2})\n\t$0'
   'Prob':
     'prefix': 'pr'
-    'body': 'prob(${1:Percent}) \n\t$0'
+    'body': 'prob(${1:Percent})\n\t$0'
   'Rand':
     'prefix': 'ra'
-    'body': 'rand(${1:Max}) \n\t$0'
+    'body': 'rand(${1:Max})\n\t$0'
   'Rgb':
     'prefix': 'rg'
-    'body': 'rgb(${1:Red},${2:Green},${3:Blue}) \n\t$0'
+    'body': 'rgb(${1:Red},${2:Green},${3:Blue})\n\t$0'
   'Roll':
     'prefix': 'ro'
-    'body': 'roll(${1:tabletop_dice}) \n\t$0'
+    'body': 'roll(${1:tabletop_dice})\n\t$0'
   'Round':
     'prefix': 'rou'
-    'body': 'round(${1:Number}) \n\t$0'
+    'body': 'round(${1:Number})\n\t$0'
   'Shell':
     'prefix': 'sh'
-    'body': 'shell(${1:Command}) \n\t$0'
+    'body': 'shell(${1:Command})\n\t$0'
   'Sleep':
     'prefix': 'sl'
-    'body': 'sleep(${1:Delay}) \n\t$0'
+    'body': 'sleep(${1:Delay})\n\t$0'
   'Spawn':
     'prefix': 'sp'
-    'body': 'spawn(${1:Delay}) \n\t$0'
+    'body': 'spawn(${1:Delay})\n\t$0'
   'Sound':
     'prefix': 'sl'
-    'body': 'sleep(${1:File},${2:Repeat},${3:Wait},${4:Channel},${5:Volume}) \n\t$0'
+    'body': 'sleep(${1:File},${2:Repeat},${3:Wait},${4:Channel},${5:Volume})\n\t$0'
   'SquareRT':
     'prefix': 'sqr'
-    'body': 'sqrt(${1:Number}) \n\t$0'
+    'body': 'sqrt(${1:Number})\n\t$0'

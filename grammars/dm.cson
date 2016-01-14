@@ -169,38 +169,56 @@
             'match': '\\\\.'
             'name': 'constant.character.escape.source.dm'
           }
+          {
+            'begin': '\\['
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.string.function.begin.source.dm'
+            'end': '\\]'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.definition.string.function.end.source.dm'
+            'name': 'string.quoted.double.function.source.dm'
+            'patterns': [
+              {
+                'include': '#constants'
+              }
+              {
+                'match': '\\?'
+                'name': 'constant.character.function.if'
+              }
+              {
+                'match': '\\:'
+                'name': 'constant.character.function.else'
+              }
+            ]
+          }
         ]
       }
       {
         'begin': '\''
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.string.begin.source.dm'
+            'name': 'punctuation.definition.filepath.begin.source.dm'
         'end': '\''
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.string.end.source.dm'
-        'name': 'string.quoted.single.source.dm'
-        'patterns': [
-          {
-            'match': '\\\\.'
-            'name': 'constant.character.escape.source.dm'
-          }
-        ]
+            'name': 'punctuation.definition.filepath.end.source.dm'
+        'name': 'string.filepath.source.dm'
       }
     ]
   'keywords':
     'patterns': [
       {
-        'match': '\\b(if|else|to|in|while|for|foreach|in|do|return|continue|break|switch|spawn|sleep|del)\\b'
+        'match': '\\b(if|else|to|in|while|for|foreach|in|do|return|continue|break|switch|spawn|sleep|del|proc|verb)\\b'
         'name': 'keyword.control.source.dm'
       }
       {
-        'match': '\\b(src|world|client|mob|user|usr)\\b'
+        'match': '\\b(src|world|client|mob|user|usr|datum|turf|obj)\\b'
         'name': 'constant.character.escape.source.dm'
       }
       {
-        'match': '\\b(var|event|delegate|fixed|add|remove|set|get|value)\\b'
+        'match': '\\b(var|delegate|fixed|add|remove|set|get|value|global|const)\\b'
         'name': 'keyword.other.source.dm'
       }
       {
