@@ -140,7 +140,7 @@
   'constants':
     'patterns': [
       {
-        'match': '\\b(true|false|null)\\b'
+        'match': '\\b(true|false|TRUE|FALSE|null)\\b'
         'name': 'constant.language.source.dm'
       }
       {
