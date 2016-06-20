@@ -166,6 +166,10 @@
         'name': 'string.quoted.double.source.dm'
         'patterns': [
           {
+            'match': '\\\\(?:the|The|a|an|A|An|he|He|she|She|his|His|himself|herself|hers|proper|improper|th|s|icon|ref|roman|Roman|\\.\\.\\.)(?=$|[[:space:]"])'
+            'name': 'support.function.builtin.source.dm'
+          }
+          {
             'match': '\\\\.'
             'name': 'constant.character.escape.source.dm'
           }
