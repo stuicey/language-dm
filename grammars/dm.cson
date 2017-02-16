@@ -78,13 +78,13 @@
   'code':
     'patterns': [
       {
+        'include': '#constants'
+      }
+      {
         'include': '#block'
       }
       {
         'include': '#comments'
-      }
-      {
-        'include': '#constants'
       }
       {
         'include': '#storage-modifiers'
@@ -148,11 +148,51 @@
         'name': 'constant.numeric.source.dm'
       }
       {
+        'match': '@"([^"]|"")*"'
         'captures':
           '0':
             'name': 'punctuation.definition.string.begin.source.dm'
-        'match': '@"([^"]|"")*"'
         'name': 'string.quoted.double.literal.source.dm'
+      }
+      {
+        'begin': '{"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.source.dm'
+        'end': '"}'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.source.dm'
+        'name': 'string.quoted.other.source.dm'
+        'patterns': [
+          {
+            'include': '#escapes'
+          }
+          {
+            'begin': '\\['
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.string.function.begin.source.dm'
+            'end': '\\]'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.definition.string.function.end.source.dm'
+            'name': 'string.quoted.double.function.source.dm'
+            'patterns': [
+              {
+                'include': '#constants'
+              }
+              {
+                'match': '\\?'
+                'name': 'constant.character.function.if'
+              }
+              {
+                'match': '\\:'
+                'name': 'constant.character.function.else'
+              }
+            ]
+          }
+        ]
       }
       {
         'begin': '"'
@@ -166,12 +206,7 @@
         'name': 'string.quoted.double.source.dm'
         'patterns': [
           {
-            'match': '\\\\(?:the|The|a|an|A|An|he|He|she|She|his|His|himself|herself|hers|proper|improper|th|s|icon|ref|roman|Roman|\\.\\.\\.)(?=$|[[:space:]"])'
-            'name': 'support.function.builtin.source.dm'
-          }
-          {
-            'match': '\\\\.'
-            'name': 'constant.character.escape.source.dm'
+            'include': '#escapes'
           }
           {
             'begin': '\\['
@@ -209,6 +244,22 @@
           '0':
             'name': 'punctuation.definition.filepath.end.source.dm'
         'name': 'string.filepath.source.dm'
+      }
+    ]
+  'escapes':
+    'patterns': [
+      {
+        'match': '\\\\([tT]he|[aA]n|[aA]|[hH]e|[sS]he|[hH]is|him|himself|herself|hers|proper|improper|th|s|icon|ref|[rR]oman|\\.\\.\\.)'
+        'name': 'constant.character.escape.source.dm'
+      }
+      {
+        # \red, \blue, \green, \black, and \b are all deprecated
+        'match': '\\\\(red|blue|green|black|b)'
+        'name': 'invalid.deprecated.source.dm'
+      }
+      {
+        'match': '\\\\.'
+        'name': 'constant.character.escape.source.dm'
       }
     ]
   'keywords':
